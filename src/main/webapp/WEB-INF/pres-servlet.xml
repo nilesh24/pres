@@ -74,21 +74,21 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<!-- <security:jdbc-user-service -->
-			<!-- data-source-ref="ds" -->
-			<!-- users-by-username-query="select name,password,enabled from userinfo 
-				where name = ?" -->
-			<!-- authorities-by-username-query="select name,authority from authorities 
-				where name = ?" /> -->
+			<security:jdbc-user-service
+			data-source-ref="ds"
+			users-by-username-query="select name,password,enabled from userinfo 
+ 				where name = ?"
+			authorities-by-username-query="select name,authority from authorities 
+				where name = ?" />
 
-			<security:user-service>
-				<security:user name="user1" password="pass1"
-					authorities="ROLE_STD" />
-				<security:user name="user2" password="pass2"
-					authorities="ROLE_ADMIN" />
-				<security:user name="user3" password="pass3"
-					authorities="ROLE_STD,ROLE_ADMIN" />
-			</security:user-service>
+<!-- 			<security:user-service> -->
+<!-- 				<security:user name="user1" password="pass1" -->
+<!-- 					authorities="ROLE_STD" /> -->
+<!-- 				<security:user name="user2" password="pass2" -->
+<!-- 					authorities="ROLE_ADMIN" /> -->
+<!-- 				<security:user name="user3" password="pass3" -->
+<!-- 					authorities="ROLE_STD,ROLE_ADMIN" /> -->
+<!-- 			</security:user-service> -->
 		</security:authentication-provider>
 
 	</security:authentication-manager>
