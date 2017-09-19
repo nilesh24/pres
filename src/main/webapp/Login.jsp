@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Index</h1>
-	<form action="/pres/forms/addUser" method="post">
+	<form action="/pres/serv/forms/addUser" method="post">
 		Name : <input type="text" name="name"><br />
 		 Age : <input type="text" name="age"><br /> 
 			City : <input type="text"
@@ -14,10 +14,11 @@
 			Email : <input type="email" name="email"><br />
 			Password : <input type="password" name="password"><br />
 			Reconfirm Password : <input type="password" name="reConfirm"><br />
-			<input type="submit" value="Invoke Hello " />
+			<input type="input" name="enabled" value="true"><br />
+			<input type="submit" value=" Hello " />
 	</form>
 
-	<form action="/pres/forms/getUser" method="get">
+	<form action="/pres/serv/forms/getUser" method="get">
 		User name : <input type="text" name="name"><br />
 		 <input type="submit" value="Search" />
 	</form>

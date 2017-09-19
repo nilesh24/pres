@@ -11,7 +11,7 @@
 
 	<servlet-mapping>
 		<servlet-name>pres</servlet-name>
-		<url-pattern>/forms/*</url-pattern>
+		<url-pattern>/serv/*</url-pattern>
 	</servlet-mapping>
 
 	<filter>
@@ -21,7 +21,7 @@
 
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/pres</url-pattern>
+		<url-pattern>/serv/forms/login</url-pattern>
 	</filter-mapping>
 
 </web-app>

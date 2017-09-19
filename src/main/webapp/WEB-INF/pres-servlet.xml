@@ -22,6 +22,14 @@
 	<bean id="userDao" class="dao.UserDao"></bean>
 	<bean id="userService" class="ser.UserService"></bean>
 
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver"></property>
@@ -54,8 +62,8 @@
 	</bean>
 
 	<security:http auto-config="true">
-		<security:intercept-url pattern="/pres/*"
-			access="hasRole('ROLE_Admin')" />
+		<security:intercept-url pattern="/serv/forms/login"
+			access="hasRole('ROLE_ADMIN')" />
 		<security:http-basic />
 
 	</security:http>
@@ -66,11 +74,21 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:jdbc-user-service
-				data-source-ref="ds"
-				users-by-username-query="select name,password,enabled from users where name = ?"
-				authorities-by-username-query="select name,authority from authorities where name = ?" />
+			<!-- <security:jdbc-user-service -->
+			<!-- data-source-ref="ds" -->
+			<!-- users-by-username-query="select name,password,enabled from userinfo 
+				where name = ?" -->
+			<!-- authorities-by-username-query="select name,authority from authorities 
+				where name = ?" /> -->
 
+			<security:user-service>
+				<security:user name="user1" password="pass1"
+					authorities="ROLE_STD" />
+				<security:user name="user2" password="pass2"
+					authorities="ROLE_ADMIN" />
+				<security:user name="user3" password="pass3"
+					authorities="ROLE_STD,ROLE_ADMIN" />
+			</security:user-service>
 		</security:authentication-provider>
 
 	</security:authentication-manager>

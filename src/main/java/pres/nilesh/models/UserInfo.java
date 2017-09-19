@@ -17,6 +17,7 @@ public class UserInfo {
 	private String name;
 	private int age;
 	private String city;
+	private String enabled;
 	
 	private String password;
 	@Transient
@@ -25,6 +26,12 @@ public class UserInfo {
 	
 	
 	
+	public String getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
 	public String getReConfirm() {
 		return reConfirm;
 	}

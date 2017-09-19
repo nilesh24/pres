@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import pres.nilesh.models.UserInfo;
 import ser.UserService;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/forms")
 public class UserController {
 	
 	@Autowired
@@ -25,6 +26,10 @@ public class UserController {
 		System.out.println("In construc User ctrl");
 	}
 
+	@RequestMapping(value="/login" ,method=RequestMethod.GET)
+	public ModelAndView login(){
+		return new ModelAndView("Login");
+	}
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST, 
 			produces = MediaType.APPLICATION_XML_VALUE)
 	@ResponseBody
